@@ -311,4 +311,5 @@ void Bluetoothe::on_SelectDeviceButton_clicked()
 {
     this->setTab(m_service.device().address().toString());
     qWarning("%s", getTab().toUtf8().data());
+    ui->Status->setText("Appareil " + m_service.device().name());
 }
