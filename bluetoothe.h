@@ -34,7 +34,7 @@ public:
     void startDiscovery(const QBluetoothUuid &uuid);
     QBluetoothServiceInfo service() const;
 
-
+    QBluetoothServiceInfo m_service;
 
     QString getTab() const;
     void setTab(const QString &value);
@@ -69,7 +69,7 @@ private:
     Ui::Bluetoothe *ui;
 
     QBluetoothServiceDiscoveryAgent *m_discoveryAgent;
-    QBluetoothServiceInfo m_service;
+
     QMap<int, QBluetoothServiceInfo> m_discoveredServices;
     QFile *m_file;
     QBluetoothLocalDevice *m_localDevice;

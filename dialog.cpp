@@ -2,6 +2,11 @@
 #include "ui_dialog.h"
 #include "time.h"
 #include "bluetoothe.h"
+#include "stdio.h"
+
+#include <QTextStream>
+#include <QFile>
+#include <QDataStream>
 
 
 #include <qbluetoothtransferrequest.h>
@@ -24,6 +29,19 @@ void Dialog::on_ScanButton_clicked()
     QString tab1 = this->bluetoothe.getTab().toUtf8().data();
     qWarning("%s",tab1.toLatin1().data());
 
+
+    QBluetoothTransferManager mgr;
+    QBluetoothTransferRequest req(this->bluetoothe.m_service.device().address());
+
+    QFile m_file("/home/jupiter/document/Cours3_Qt_BdD.pdf");
+
+    QBluetoothTransferReply *reply = mgr.put(req, m_file);
+    reply->setParent(this);
+    if (reply->error()){
+        qDebug() << "Failed to send file";
+        reply->deleteLater();
+        return;
+    }
     /*
     //Debut Pression
     double Pression = 1007;

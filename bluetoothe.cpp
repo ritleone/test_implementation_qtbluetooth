@@ -104,6 +104,7 @@ void Bluetoothe::on_ActualiserButton_clicked()
 {
     startDiscovery();
     ui->StopButton->setDisabled(false);
+    ui->Status->setText("Rescanning...");
 }
 
 void Bluetoothe::serviceDiscovered(const QBluetoothServiceInfo &serviceInfo)
