@@ -26,6 +26,7 @@ private:
     Ui::Dialog *ui;
     Bluetoothe bluetoothe;
     int position;
+    QFile *m_file;
 
 };
 

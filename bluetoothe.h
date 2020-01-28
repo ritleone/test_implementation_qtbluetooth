@@ -71,7 +71,7 @@ private:
     QBluetoothServiceDiscoveryAgent *m_discoveryAgent;
 
     QMap<int, QBluetoothServiceInfo> m_discoveredServices;
-    QFile *m_file;
+
     QBluetoothLocalDevice *m_localDevice;
     bool m_pairingError;
 

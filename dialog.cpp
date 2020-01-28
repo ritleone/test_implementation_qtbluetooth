@@ -33,7 +33,7 @@ void Dialog::on_ScanButton_clicked()
     QBluetoothTransferManager mgr;
     QBluetoothTransferRequest req(this->bluetoothe.m_service.device().address());
 
-    QFile m_file("/home/jupiter/document/Cours3_Qt_BdD.pdf");
+    m_file = new QFile("/home/jupiter/document/Cours3_Qt_BdD.pdf");
 
     QBluetoothTransferReply *reply = mgr.put(req, m_file);
     reply->setParent(this);
