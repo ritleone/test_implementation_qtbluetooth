@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
+    <width>1016</width>
     <height>336</height>
    </rect>
   </property>
@@ -244,8 +244,8 @@
     <rect>
      <x>710</x>
      <y>40</y>
-     <width>191</width>
-     <height>281</height>
+     <width>251</width>
+     <height>291</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -258,13 +258,30 @@
        </size>
       </property>
       <property name="text">
-       <string>Force du vent en m/s</string>
+       <string>Force du vent</string>
       </property>
      </widget>
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="radioButtonMByS">
+        <property name="text">
+         <string>m/s</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QRadioButton" name="radioButtonKMbyH">
+        <property name="text">
+         <string>km/h</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" rowspan="2">
        <widget class="QLCDNumber" name="lcdVent">
         <property name="maximumSize">
          <size>
