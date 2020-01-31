@@ -42,6 +42,9 @@ void Dialog::on_ScanButton_clicked()
         reply->deleteLater();
         return;
     }
+
+    this->CS.startClient(this->bluetoothe.m_service);
+
     /*
     //Debut Pression
     double Pression = 1007;

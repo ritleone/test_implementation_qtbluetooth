@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         dialog.cpp \
-    bluetoothe.cpp
+    bluetoothe.cpp \
+    clientsocket.cpp
 
 HEADERS  += dialog.h \
-    bluetoothe.h
+    bluetoothe.h \
+    clientsocket.h
 
 FORMS    += dialog.ui \
     bluetoothe.ui

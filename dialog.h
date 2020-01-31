@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "bluetoothe.h"
+#include "clientsocket.h"
 
 namespace Ui {
 class Dialog;
@@ -25,8 +26,11 @@ private slots:
 private:
     Ui::Dialog *ui;
     Bluetoothe bluetoothe;
+    ClientSocket CS;
     int position;
     QFile *m_file;
+
+
 
 };
 
