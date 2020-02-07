@@ -3,6 +3,7 @@
 #include "time.h"
 #include "bluetoothe.h"
 #include "stdio.h"
+#include <unistd.h>
 
 #include <QTextStream>
 #include <QFile>
@@ -11,12 +12,20 @@
 
 #include <qbluetoothtransferrequest.h>
 #include <qbluetoothtransferreply.h>
+#include <qbluetoothuuid.h>
+#include <qbluetoothserver.h>
+#include <qbluetoothservicediscoveryagent.h>
+#include <qbluetoothdeviceinfo.h>
+#include <qbluetoothlocaldevice.h>
+
+static const QLatin1String serviceUuid("e8e10f95-1a70-4b27-9ccf-02010264e9c8"); //Mettre le uuid dans un fichier
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    qWarning("Dialog construit");
 }
 
 Dialog::~Dialog()
@@ -26,6 +35,7 @@ Dialog::~Dialog()
 
 void Dialog::on_ScanButton_clicked()
 {
+    /*
     QString tab1 = this->bluetoothe.getTab().toUtf8().data();
     qWarning("%s",tab1.toLatin1().data());
 
@@ -42,8 +52,17 @@ void Dialog::on_ScanButton_clicked()
         reply->deleteLater();
         return;
     }
+*/
+    connect(bluetoothe, SIGNAL(addressReceived(QString)), this, SLOT(scanButtonEnable(QString)));
 
-    this->CS.startClient(this->bluetoothe.m_service);
+        ClientSocket *CS = new ClientSocket(this);
+
+        CS->startClient(bluetoothe->m_service);
+
+        connect(CS, SIGNAL(messageReceived(QString,QString)), this, SLOT(showMessage(QString,QString)));
+
+
+
 
     /*
     //Debut Pression
@@ -140,5 +159,21 @@ void Dialog::on_ScanButton_clicked()
 
 void Dialog::on_BluetoothButton_clicked()
 {
-    this->bluetoothe.show();
+    bluetoothe->show();
+    bluetoothe->startDiscovery(QBluetoothUuid(serviceUuid));
+}
+
+void Dialog::showMessage(const QString &sender, const QString &message)
+{
+    ui->chat->insertPlainText(QString::fromLatin1("%1: %2\n").arg(sender, message));
+}
+
+int Dialog::scanButtonEnable(QString &tab1)
+{
+    qWarning("%s",tab1.toLatin1().data());
+    if(!tab1.isEmpty()){
+        qWarning("Je suis pas connécté a un appareil");
+        return 1;
+    }
+    return 0;
 }

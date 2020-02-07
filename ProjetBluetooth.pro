@@ -23,3 +23,8 @@ HEADERS  += dialog.h \
 
 FORMS    += dialog.ui \
     bluetoothe.ui
+
+# QWT library
+# INCLUDEPATH += /usr/local/qwt-6.1.4/include
+# LIBS += -L/usr/local/qwt-6.1.4/lib -lqwt
+
