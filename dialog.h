@@ -23,7 +23,7 @@ private slots:
 
     void showMessage(const QString &sender, const QString &message);
 
-    void scanButtonEnable(QString &tab1);
+    int scanButtonEnable(QString &tab1);
 
 private:
     Ui::Dialog *ui;
