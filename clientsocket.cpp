@@ -5,6 +5,7 @@
 ClientSocket::ClientSocket(QObject *parent)
 : QObject(parent), socket(nullptr)
 {
+    CSCreate = 1;
 }
 
 ClientSocket::~ClientSocket()
@@ -20,7 +21,6 @@ void ClientSocket::startClient(const QBluetoothServiceInfo &remoteService)
     // Connect to service
     socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
     qDebug() << "Create socket";
-    qWarning("Create Socket");
     socket->connectToService(remoteService);
     qDebug() << "ConnectToService done";
     connect(socket, SIGNAL(readyRead()), this, SLOT(readSocket()));
@@ -30,8 +30,10 @@ void ClientSocket::startClient(const QBluetoothServiceInfo &remoteService)
 
 void ClientSocket::stopClient()
 {
+    CSCreate = 0;
     delete socket;
     socket = nullptr;
+    qWarning("Socket client arreter");
 }
 
 void ClientSocket::readSocket()
@@ -48,6 +50,7 @@ void ClientSocket::readSocket()
 
 void ClientSocket::connected()
 {
-    //emit connected(socket->peerName());
+    emit connected(socket->peerName());
+
 }
 

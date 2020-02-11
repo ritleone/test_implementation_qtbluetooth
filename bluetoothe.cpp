@@ -91,6 +91,7 @@ void Bluetoothe::startDiscovery()
 
 void Bluetoothe::on_pushButton_clicked()
 {
+    on_StopButton_clicked();
     reject();
 }
 
@@ -312,6 +313,5 @@ void Bluetoothe::on_SelectDeviceButton_clicked()
     this->setTab(m_service.device().address().toString());
     qWarning("%s", getTab().toUtf8().data());
     ui->Status->setText("Appareil " + m_service.device().name());
-
-    emit addressReceived(m_service.device().address().toString());
+    ScanEnable = 1;
 }

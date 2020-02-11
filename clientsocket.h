@@ -15,10 +15,11 @@ class ClientSocket : public QObject
 {
     Q_OBJECT
 public:
-    explicit ClientSocket(QObject *parent = 0);
+    explicit ClientSocket(QObject *parent = nullptr);
     ~ClientSocket();
     void startClient(const QBluetoothServiceInfo &remoteService);
     void stopClient();
+    int CSCreate = 0;
 
 signals:
     void connected(const QString &name);
@@ -27,6 +28,8 @@ signals:
 
 private slots:
     void readSocket();
+
+public slots:
     void connected();
 
 private:

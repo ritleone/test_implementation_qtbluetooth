@@ -15,16 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         dialog.cpp \
     bluetoothe.cpp \
-    clientsocket.cpp
+    clientsocket.cpp \
+    interpretationtrame.cpp
 
 HEADERS  += dialog.h \
     bluetoothe.h \
-    clientsocket.h
+    clientsocket.h \
+    interpretationtrame.h
 
 FORMS    += dialog.ui \
     bluetoothe.ui
-
-# QWT library
-# INCLUDEPATH += /usr/local/qwt-6.1.4/include
-# LIBS += -L/usr/local/qwt-6.1.4/lib -lqwt
-

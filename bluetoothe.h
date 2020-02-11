@@ -41,6 +41,8 @@ public:
     QString getTab() const;
     void setTab(const QString &value);
 
+    bool ScanEnable = 0;
+
 public Q_SLOTS:
     void startDiscovery();
 
@@ -80,8 +82,6 @@ private:
     QString addressToName(const QBluetoothAddress &address);
 
     QString tab;
-signals:
-    void addressReceived(QString);
 };
 
 #endif // BLUETOOTHE_H

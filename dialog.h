@@ -15,19 +15,18 @@ class Dialog : public QDialog
 
 public:
     explicit Dialog(QWidget *parent = nullptr);
-    ~Dialog();   
-    void on_ScanButton_clicked();
+    ~Dialog();
 
 private slots:
     void on_BluetoothButton_clicked();
 
     void showMessage(const QString &sender, const QString &message);
 
-    int scanButtonEnable(QString &tab1);
+    void on_ScanButton_clicked();
 
 private:
     Ui::Dialog *ui;
-    Bluetoothe *bluetoothe = new Bluetoothe();
+    Bluetoothe bluetoothe ;
     int position;
     QFile *m_file;
 

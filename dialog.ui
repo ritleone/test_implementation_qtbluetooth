@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>Station météo</string>
   </property>
-  <widget class="QPushButton" name="ScanButton">
-   <property name="geometry">
-    <rect>
-     <x>278</x>
-     <y>9</y>
-     <width>99</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Lancer le scan</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -138,7 +125,7 @@
      <x>10</x>
      <y>180</y>
      <width>191</width>
-     <height>45</height>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -331,13 +318,19 @@
        <number>85</number>
       </property>
       <property name="sliderPosition">
-       <number>85</number>
+       <number>180</number>
       </property>
       <property name="tracking">
        <bool>false</bool>
       </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
+      </property>
+      <property name="wrapping">
+       <bool>true</bool>
+      </property>
+      <property name="notchesVisible">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -367,6 +360,19 @@
    </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ScanButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>10</y>
+     <width>111</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lancer le scan</string>
    </property>
   </widget>
  </widget>
