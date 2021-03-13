@@ -1,1 +1,2 @@
 # test_implementation_qtbluetooth
+School Project
